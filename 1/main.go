@@ -1,25 +1,28 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"math"
-	"os"
 	"sort"
 	"strconv"
 	"strings"
+
+	"advent/common"
 )
 
 // Part 1: 2756096
 // Part 2: 23117829
+var (
+	inputFileName = flag.String("input-file", "input.txt", "this will be used as input")
+)
 
 func main() {
 	// 	testSlice := strings.Split(testInput, "\n")
-	data, err := os.ReadFile("input.txt")
-	if err != nil {
-		panic(err)
-	}
+	flag.Parse()
+	inputData := common.ReadFile(*inputFileName)
 
-	dataString := string(data)
+	dataString := string(inputData)
 
 	var arr1, arr2 []int
 
